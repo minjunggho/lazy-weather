@@ -1,0 +1,151 @@
+.advice-card {
+  background: white;
+  border-radius: 12px;
+  padding: 40px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  animation: slideUp 0.6s ease-out 0.4s both;
+}
+
+.advice-card.empty {
+  align-items: center;
+  justify-content: center;
+}
+
+.empty-state {
+  text-align: center;
+  color: #999;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.advice-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.advice-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+}
+
+.temperature-diff {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.temperature-diff span:first-child {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.temperature-diff .colder {
+  color: #4a90e2;
+}
+
+.temperature-diff .warmer {
+  color: #ff6b6b;
+}
+
+.diff-label {
+  font-size: 12px;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.advice-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.main-advice {
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+}
+
+.advice-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  margin: 0;
+}
+
+.outfit-suggestion {
+  padding: 20px;
+  background: #fff5f7;
+  border-radius: 8px;
+  border-left: 4px solid #ff6b6b;
+}
+
+.outfit-label {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #666;
+  margin: 0 0 8px 0;
+}
+
+.outfit-text {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ff6b6b;
+  margin: 0;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .advice-card {
+    padding: 24px;
+    min-height: 250px;
+  }
+
+  .advice-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .temperature-diff {
+    align-items: flex-start;
+  }
+
+  .advice-title {
+    font-size: 20px;
+  }
+
+  .advice-text {
+    font-size: 15px;
+  }
+
+  .outfit-text {
+    font-size: 16px;
+  }
+}

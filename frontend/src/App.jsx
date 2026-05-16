@@ -1,18 +1,22 @@
 import { useState } from 'react'
+import SearchBar from './components/SearchBar'
+import AdviceCard from './components/AdviceCard'
 import './styles.css'
 
+const fakeAdvice = {
+  main_advice: "Today is a little colder than yesterday. A light jacket is a good idea.",
+  outfit: "Light jacket",
+  difference_c: -2
+};
+
 function App() {
-  const [city, setCity] = useState('')
+  const [advice, setAdvice] = useState(null)
 
-  const handleGetAdvice = () => {
+  const handleSearch = (city) => {
+    console.log('Searching for:', city)
     // TODO: Connect to backend when ready
-    console.log('Getting advice for:', city)
-  }
-
-  const handleKeyPress = (e) => {
-    if (e.key === 'Enter') {
-      handleGetAdvice()
-    }
+    // For now, show fake advice
+    setAdvice(fakeAdvice)
   }
 
   return (
@@ -23,26 +27,9 @@ function App() {
       </header>
 
       <main className="main-content">
-        <div className="search-section">
-          <div className="input-wrapper">
-            <input
-              type="text"
-              className="city-input"
-              placeholder="Enter city"
-              value={city}
-              onChange={(e) => setCity(e.target.value)}
-              onKeyPress={handleKeyPress}
-            />
-            <button className="get-advice-btn" onClick={handleGetAdvice}>
-              Get Advice
-            </button>
-          </div>
-        </div>
-
+        <SearchBar onSearch={handleSearch} />
         <div className="results-section">
-          <div className="result-card">
-            <p className="empty-state">Enter a city to get weather advice</p>
-          </div>
+          <AdviceCard advice={advice} />
         </div>
       </main>
     </div>
